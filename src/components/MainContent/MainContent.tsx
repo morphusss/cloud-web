@@ -18,6 +18,12 @@ export function MainContent() {
 
     console.log(apiData)
     console.log(typeof apiData)
+    
+
+    const testVar: CityForecast[] = apiData;
+
+    console.log( "test" , testVar)
+    console.log(typeof testVar)
 
     return(
         <>
