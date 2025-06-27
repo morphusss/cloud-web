@@ -1,8 +1,8 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import { apiDataReducer } from "./apiData/apiData.slice";
+import { apiDataReducer } from "./weatherApiData/apiData.slice";
 
 const apiReducer = combineReducers({
-    apiData: apiDataReducer
+    weatherApiData: apiDataReducer
 })
 
 export default configureStore({

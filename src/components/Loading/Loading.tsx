@@ -1,14 +1,14 @@
 import LoadingSpinner from "../../assets/svg/loading.svg"
-import "./Loading.scss"
+import styles from "./Loading.module.scss"
 
 export function Loading() {
     return(
         <>
-        <section className="loading-root">
-            <section className="loading-root-spinner-wrapper">
-                <img src={LoadingSpinner} className="loading-spinner" />
+        <section className={styles.root}>
+            <section className={styles.spinnerWrapper}>
+                <img src={LoadingSpinner} className={styles.loadingSpinner} />
             </section>
-            <section className="loading-root-text-wrapper">
+            <section className={styles.textWrapper}>
                 Loading... Please wait!
             </section>
         </section>

@@ -1,7 +1,6 @@
 import { HashRouter as Router, Route, Routes } from "react-router"
-import { Home } from "./pages/home"
-import { ListPage } from "./pages/listPage"
-import { NotFound } from "./pages/notFound"
+import { Home, ListPage, Map, NotFound } from "./pages"
+
 import './App.css'
 
 function App() {
@@ -12,6 +11,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home/>}/>
           <Route path="/cityList" element={<ListPage/>}/>
+          <Route path="/map" element={<Map/>}/>
           <Route path="/*" element={<NotFound/>}/>
         </Routes>
       </Router>

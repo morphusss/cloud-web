@@ -1,0 +1,24 @@
+@keyframes spin {
+    0% { transform: rotate(360deg); }
+    100% { transform: rotate(0deg); }
+}
+
+.root{
+    width: 100vw;
+    height: 92vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2%;
+
+    .loadingSpinner{
+        animation: spin 4s linear infinite;
+    }
+
+    .textWrapper{
+        font-size: 28px;
+        font-weight: 600;
+    }
+}
+

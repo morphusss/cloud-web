@@ -25,8 +25,8 @@ $dark-theme-bg: #262223;
 
   color-scheme: light dark;
   color: black;
-  background-color: $light-theme-bg;
-
+  //background-color: $light-theme-bg;
+  background-image: url("./assets/images/gradient.jpg");
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;

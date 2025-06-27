@@ -1,15 +1,16 @@
-import { Header } from "../components/Header/Header";
-import { MainContent } from "../components/MainContent/MainContent";
+import { Header } from "../components/Header";
+import { MainContent } from "../components/PagesContent/MainContent";
+import styles from "../styles/pages.module.scss"
 
 export function Home() {
 
     return(
         <>
-        <section className="home-root">
-            <section className="home-root-upper-wrapper">
+        <section className={styles.root}>
+            <section className={styles.upperWrapper}>
                 <Header/>
             </section>
-            <section className="home-root-lower-wrapper">
+            <section className={styles.lowerWrapper}>
                 <MainContent/>
             </section>
         </section>

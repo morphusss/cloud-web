@@ -1,21 +1,22 @@
-import "./MainWeatherBlock.scss"
+import styles from "./MainWeatherBlock.module.scss"
 
 export function MainWeatherBlock() {
 
     return(
         <>
-        <section className="main-weather-root">
-            <section className="main-weather-root-container">
-                <section className="main-weather-root-container-upper-wrapper">
-                    <img src="" className="weather-type-img" />
+        <section className={styles.root}>
+            <section className={styles.upperWrapper}>
+                <img src='' className={styles.weatherImg} />
+            </section>
+            <section className={styles.lowerWrapper}>
+                <section className={styles.weatherTitle}>
+                    
                 </section>
-                <section className="main-weather-root-container-lower-wrapper">
-                    <section className="weather-type-name">
-                        Sunny
-                    </section>
-                    <section className="weather-type-temperature">
-                        37.5
-                    </section>
+                <section className={styles.weatherTemperature}>
+                    
+                </section>
+                <section className={styles.weatherFeelLike}>
+
                 </section>
             </section>
         </section>
