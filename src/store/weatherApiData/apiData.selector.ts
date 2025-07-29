@@ -1,3 +1,3 @@
 import type { State } from "../index";
 
-export const apiDataSelector = (state: State) => state.weatherApiData.apiResponse;
+export const apiDataSelector = (state: State) => state.weatherApiData.cityForecast;

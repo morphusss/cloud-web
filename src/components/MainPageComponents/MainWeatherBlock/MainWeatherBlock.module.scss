@@ -2,7 +2,47 @@
 
 .root{
     @include background.backgroundForMainChild ;
-
     width: 100%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .upperWrapper{
+        width: 100%;
+        height: 60%;
+
+        .currentTypeOfWeatherImgWrapper{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .currentTypeOfWeatherImg{
+                width: 69%;
+                height: 90%;
+            }
+        }
+    }
+
+    .lowerWrapper{
+        width: 100%;
+        height: 40%;
+        padding-bottom: 2%;
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        gap: 13%;
+        font-weight: 700;
+        font-size: 18px;
+
+        .weatherInfo{
+            height: fit-content;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2%;
+        }
+    }
 }

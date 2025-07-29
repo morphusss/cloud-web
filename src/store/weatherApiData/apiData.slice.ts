@@ -2,23 +2,23 @@ import { createSlice, type PayloadAction } from "@reduxjs/toolkit"
 import type { CityForecast } from "../../types/types"
 
 export type State = {
-    apiResponse: CityForecast | null,
+    cityForecast: CityForecast | null,
 }
 
 const initialState: State = {
-    apiResponse: null,
+    cityForecast: null,
 }
 
 const apiDataSlice = createSlice({
     initialState,
     name: "weatherApiData",
     reducers: {
-        changeData: (state, action: PayloadAction<CityForecast | null>) => {
-            state.apiResponse = action.payload;
+        getCityForecastSuccess: (state, action: PayloadAction<CityForecast | null>) => {
+            state.cityForecast = action.payload;
         },
     },
 })
 
 export const apiDataReducer = apiDataSlice.reducer;
 
-export const { changeData } = apiDataSlice.actions;
+export const { getCityForecastSuccess } = apiDataSlice.actions;

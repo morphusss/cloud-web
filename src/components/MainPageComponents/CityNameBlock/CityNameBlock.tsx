@@ -1,34 +1,35 @@
-import { useState } from "react"
-import type { CityForecast } from "../../../types/types"
 import styles from  "./CityNameBlock.module.scss"
 import { useSelector } from "react-redux"
 import { apiDataSelector } from "../../../store/weatherApiData/apiData.selector"
+import { useState } from "react";
 
-type Props = {
-    data: CityForecast | null,
-}
-
-
-
-export function CityNameBlock(/*props: Props*/) {
+export function CityNameBlock() {
     const selector = useSelector(apiDataSelector);
-    const [ data, setData ] = useState<CityForecast | null>(null)
+    const [ isHovered, setIsHovered ] = useState(false);
 
-
-    function fillData() {
-        
-
-        setData(selector);
+    function showCorrectContent() {
+        if(isHovered === true) {
+            return(
+                <>
+                {selector?.location.country}   
+                </>
+            )
+        } else {
+            return(
+                <>
+                {selector?.location.name}
+                </>
+            )
+        }
     }
-
-    fillData()
 
     return(
         <>
         <section className={styles.root}>
-            <section className={styles.nameWrapper}>
-                {/* {props.data?.location.name} */}
-                {data?.location.name}
+            <section className={styles.nameWrapper} 
+                    onMouseOver={() => {setIsHovered((prev) => !prev)}} 
+                    onMouseOut={() => {setIsHovered((prev) => !prev)}}>
+                {showCorrectContent()}
             </section>
         </section>
         </>

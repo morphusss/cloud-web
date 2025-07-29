@@ -1,0 +1,30 @@
+@mixin BlurredRoundedWrapper {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+@mixin AccentBlurredRoundedWrapper {
+    background: rgba(133, 187, 249, 0.4);
+    border-radius: 12px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(6.6px);
+    -webkit-backdrop-filter: blur(6.6px);
+}
+
+.root{
+    width: 100%;
+    height: 92vh;
+
+    .upperWrapper{
+        width: 100%;
+        height: 10%;
+    }
+
+    .lowerWrapper{
+        width: 100%;
+        height: 90%;
+    }
+}

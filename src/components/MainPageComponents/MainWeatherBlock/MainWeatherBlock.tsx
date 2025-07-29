@@ -1,22 +1,32 @@
+import { useSelector } from "react-redux"
 import styles from "./MainWeatherBlock.module.scss"
+import { apiDataSelector } from "../../../store/weatherApiData/apiData.selector"
+import { showCorrectIcon } from "./script"
+
 
 export function MainWeatherBlock() {
+    const selector = useSelector(apiDataSelector)
+
 
     return(
         <>
         <section className={styles.root}>
             <section className={styles.upperWrapper}>
-                
+                <section className={styles.currentTypeOfWeatherImgWrapper}>
+                    <img src={showCorrectIcon(selector?.current.condition.text)} className={styles.currentTypeOfWeatherImg}/>
+                </section>
             </section>
             <section className={styles.lowerWrapper}>
-                <section className={styles.weatherTitle}>
-                    
+                <section className={styles.weatherInfo}>
+                    {selector?.current.condition.text}
                 </section>
-                <section className={styles.weatherTemperature}>
-                    
+                <section className={styles.weatherInfo}>
+                    <section className={styles.weatherTemperatureTitle}>Temperature:</section>
+                    {selector?.current.temp_c}
                 </section>
-                <section className={styles.weatherFeelLike}>
-
+                <section className={styles.weatherInfo}>
+                    <section className={styles.weatherFeelLikeTitle}>Feels like:</section>
+                    {selector?.current.feelslike_c}
                 </section>
             </section>
         </section>

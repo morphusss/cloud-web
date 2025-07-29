@@ -110,13 +110,44 @@ export type CityForecast = {
 export type DedicatedCity = {
     id: number,
     name: string,
-    state_id: number,
-    state_code: string,
-    state_name: string,
-    country_id: number,
-    country_code: string,
-    country_name: string,
-    latitude: string,
-    longitude: string,
-    wikiDataId: string,
+    state_id?: number,
+    state_code?: string,
+    state_name?: string,
+    country_id?: number,
+    country_code?: string,
+    country_name?: string,
+    latitude?: string,
+    longitude?: string,
+    wikiDataId?: string,
+}
+
+export type IndexUV = {
+    id: number,
+    level_name: string,
+    min_level: number,
+    max_level: number,
+    level_color: string,
+}
+
+export type WindSpeed = {
+    id: number,
+    level_name: string,
+    min_level: number,
+    max_level: number,
+    level_color: string,
+}
+
+export type AirQualityIndex = {
+    id: number,
+    level_name: string,
+    level_value: string,
+    min_level: number,
+    max_level: number,
+    level_color:  string,
+}
+
+export type GeoDetails = {
+    lon?: number | null,
+    lat?: number | null,
+    cityName?: string | null,
 }

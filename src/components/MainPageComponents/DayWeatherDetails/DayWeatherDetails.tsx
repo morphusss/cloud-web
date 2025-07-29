@@ -1,20 +1,19 @@
-import { DayWeatherDetailsComponent } from "../DayWeatherDetailsComponent"
-import styles from "./DayWeatherDetails.module.scss"
+import styles from "./DayWeatherDetails.module.scss";
+import { DayWeatherDetailsComponent } from "../DayWeatherDetailsComponent";
 
 const detailsList = [
     { type: "uv" },
-    { type: "wind-speed" },
-    { type: "air-quality" },
+    { type: "wind_speed" },
+    { type: "air_quality" },
 ]
 
 export function DayWeatherDetails() {
-
     return(
         <>
         <section className={styles.root}>
-            {detailsList.map((elem) => (
-                <section className={styles.typeBlock}>
-                    <DayWeatherDetailsComponent type={elem.type}/>
+            {detailsList.map((data) => (
+                <section className={styles.detailWrapper}>
+                    <DayWeatherDetailsComponent type={data.type}/>
                 </section>
             ))}
         </section>

@@ -1,0 +1,51 @@
+[
+    {
+        "id": 1,
+        "level_name": "good",
+        "level_value": "0-50",
+        "min_level": 0,
+        "max_level": 12,
+        "level_color":  "#ACD1AF"
+    },
+    {
+        "id": 2,
+        "level_name": "moderate",
+        "level_value": "51-100",
+        "min_level": 12.1,
+        "max_level": 35.4,
+        "level_color":  "#FFEE8C"
+    },
+    {
+        "id": 3,
+        "level_name": "unhealthy for sensitive groups",
+        "level_value": "101-150",
+        "min_level": 35.5,
+        "max_level": 55.4,
+        "level_color":  "#FFC067"
+    },
+    {
+        "id": 4,
+        "level_name": "unhealthy",
+        "level_value": "151-200",
+        "min_level": 55.5,
+        "max_level": 150.4,
+        "level_color":  "#FF746C"
+    },
+    {
+        "id": 5,
+        "level_name": "very unhealthy",
+        "level_value": "201-300",
+        "min_level": 150.5,
+        "max_level": 250.4,
+        "level_color":  "#A66FB5"
+    },
+    {
+        "id": 6 ,
+        "level_name": "Hazardous",
+        "level_value": "301-higher",
+        "min_level": 250.5,
+        "max_level": 1000000,
+        "level_color":  "#B5406C"
+    }
+    
+]

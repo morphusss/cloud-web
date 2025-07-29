@@ -1,6 +1,5 @@
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import { getCityForecast } from "../../../api"
-import type { CityForecast } from "../../../types/types"
 import { MainWeatherBlock } from "../../MainPageComponents/MainWeatherBlock";
 import { CityNameBlock } from "../../MainPageComponents/CityNameBlock";
 import { FutureForecastBlock } from "../../MainPageComponents/FutureForecastBlock";
@@ -11,49 +10,33 @@ import styles from "./MainContent.module.scss"
 import { useSelector } from "react-redux";
 import { apiDataSelector } from "../../../store/weatherApiData/apiData.selector";
 import { useDispatch } from "react-redux";
-import { changeData } from "../../../store/weatherApiData/apiData.slice";
-
-
-
+import { getCityForecastSuccess } from "../../../store/weatherApiData/apiData.slice";
+import { cityNameSelector } from "../../../store/cityName/cityName.selector";
 
 export function MainContent() {
     const dispatch = useDispatch();
-    const testData = useSelector(apiDataSelector);
-    const [ apiData, setApiData ] = useState<CityForecast | null>(null);
-   
+    const weatherForecast = useSelector(apiDataSelector);
+    const cityName = useSelector(cityNameSelector);
+    const classicCityName = "London";
 
-    // function requestDataFromStore() {
-    //     const testData = useSelector(apiDataSelector)
+    function returnCorrectCityName() {
+        if(cityName) {
+            return cityName;
+        } else {
+            return classicCityName;
+        }
+    }
 
-    //     return(testData)
-    // }
-    
-
-    
-    
     useEffect(() => {
-        async function getData() {
-            const data = await getCityForecast("London");
-            data && setApiData(data);
-            console.log(testData?.location.name)
+        async function getWeatherForecast() {
+            const data = await getCityForecast(returnCorrectCityName());
+            dispatch(getCityForecastSuccess(data));
         }
 
-        !apiData && getData()
-
+        getWeatherForecast();
     }, [])
 
-    useEffect(() => {
-        apiData && dispatch(changeData(apiData))
-    }, [dispatch])
-
-    // console.log(apiData)
-    // console.log(typeof apiData)
-    
-    // console.log(requestDataFromStore())
-
-
-
-    if (!apiData) {
+    if (!weatherForecast) {
         return(
             <>
             <section className={styles.root}>
@@ -68,7 +51,7 @@ export function MainContent() {
         <section className={styles.root}>
             <section className={styles.leftContainer}>
                 <section className={styles.leftDetailWrapper}>
-                    <CityNameBlock />
+                    <CityNameBlock/>
                 </section>
                 <section className={styles.leftDetailWrapper}>
                     <FutureForecastBlock/>

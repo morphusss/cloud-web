@@ -1,28 +1,50 @@
-import { useState } from "react"
 import styles from "./ListOfCities.module.scss"
 import cities from "../../../json/cities.json"
 import type { DedicatedCity } from "../../../types/types"
+import { useSelector } from "react-redux"
+import { searchCitySelector } from "../../../store/searchCity/searchCity.selector"
+import { Loading } from "../../Loading"
+import { DedicatedCityBlock } from "../DedicatedCityBlock"
 
 const cityList = cities as DedicatedCity[]
 
-const standartCitiesList = [
-    { city: "New York City", id: 122795 },
-    { city: "London", id: 50388 },
-    { city: "Kyiv", id: 109897 },
-    { city: "Auckland", id: 79773 },
-    { city: "Tokyo", id: 64500 },
+const standardCitiesList = [
+    { name: "New York City", id: 122795 },
+    { name: "London", id: 50388 },
+    { name: "Kyiv", id: 109897 },
+    { name: "Auckland", id: 79773 },
+    { name: "Tokyo", id: 64500 },
 ]
 
 export function ListOfCities() {
-    const [ list, setList ] = useState<DedicatedCity[]>([])
+    const selector = useSelector(searchCitySelector);
 
+    let filteredList: DedicatedCity[] = [];
+    if(selector) {
+        filteredList = cityList.filter((city) => 
+            city.name.toLocaleLowerCase().startsWith(selector.toLowerCase()));
+    } else {
+        filteredList = standardCitiesList;
+    }
+
+    if (filteredList.length === 0) {
+        return(
+            <>
+            <section className={styles.root}>
+                <Loading/>
+            </section>
+            </>
+        )
+    }
 
     return(
         <>
         <section className={styles.root}>
-            {standartCitiesList.map((item) => (
-                <section>{item.city}</section>
-            ))}
+            <ul className={styles.cityTable}>
+                {filteredList.map((city, key) => (
+                    <DedicatedCityBlock data={city} key={key}/>
+                ))}
+            </ul>
         </section>
         </>
     )

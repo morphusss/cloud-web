@@ -1,0 +1,15 @@
+.root{
+    width: 100%;
+    height: 100%; 
+
+    .cityTable{
+        list-style-type: none;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;  
+        padding-top: 2%;
+        gap: 3%;
+    }
+}
