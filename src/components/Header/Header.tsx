@@ -1,7 +1,7 @@
-import CloudLogo from "../../assets/svg/cloud.svg"
-import HomeLogo from "../../assets/svg/home.svg"
-import ListLogo from "../../assets/svg/list.svg"
-import MapsLogo from "../../assets/svg/map.svg"
+import CloudLogo from "../../assets/svg/black/cloud.svg"
+import HomeLogo from "../../assets/svg/black/home.svg"
+import ListLogo from "../../assets/svg/black/list.svg"
+import MapsLogo from "../../assets/svg/black/map.svg"
 import { Link } from "react-router-dom"
 import styles from  "./Header.module.scss"
 

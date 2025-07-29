@@ -1,4 +1,7 @@
+@use "../../PagesContent/MainContent/MainContent.module.scss" as background;
+
 .root{
+    @include background.backgroundForAdditionalChild;
     width: 100%;
     height: 10vh;
 }

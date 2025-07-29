@@ -6,7 +6,7 @@ export function MainWeatherBlock() {
         <>
         <section className={styles.root}>
             <section className={styles.upperWrapper}>
-                <img src='' className={styles.weatherImg} />
+                
             </section>
             <section className={styles.lowerWrapper}>
                 <section className={styles.weatherTitle}>

@@ -1,4 +1,4 @@
-import LoadingSpinner from "../../assets/svg/loading.svg"
+import LoadingSpinner from "../../assets/svg/black/loading.svg"
 import styles from "./Loading.module.scss"
 
 export function Loading() {

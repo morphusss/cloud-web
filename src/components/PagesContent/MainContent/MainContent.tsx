@@ -11,12 +11,16 @@ import styles from "./MainContent.module.scss"
 import { useSelector } from "react-redux";
 import { apiDataSelector } from "../../../store/weatherApiData/apiData.selector";
 import { useDispatch } from "react-redux";
-// import { changeData } from "../../../store/weatherApiData/apiData.slice";
+import { changeData } from "../../../store/weatherApiData/apiData.slice";
 
-// const dispatch = useDispatch()
+
+
 
 export function MainContent() {
+    const dispatch = useDispatch();
+    const testData = useSelector(apiDataSelector);
     const [ apiData, setApiData ] = useState<CityForecast | null>(null);
+   
 
     // function requestDataFromStore() {
     //     const testData = useSelector(apiDataSelector)
@@ -25,22 +29,29 @@ export function MainContent() {
     // }
     
 
-
+    
     
     useEffect(() => {
         async function getData() {
             const data = await getCityForecast("London");
             data && setApiData(data);
+            console.log(testData?.location.name)
         }
 
         !apiData && getData()
-        // dispatch(changeData(apiData))
+
     }, [])
+
+    useEffect(() => {
+        apiData && dispatch(changeData(apiData))
+    }, [dispatch])
 
     // console.log(apiData)
     // console.log(typeof apiData)
     
     // console.log(requestDataFromStore())
+
+
 
     if (!apiData) {
         return(
@@ -57,7 +68,7 @@ export function MainContent() {
         <section className={styles.root}>
             <section className={styles.leftContainer}>
                 <section className={styles.leftDetailWrapper}>
-                    <CityNameBlock/>
+                    <CityNameBlock />
                 </section>
                 <section className={styles.leftDetailWrapper}>
                     <FutureForecastBlock/>

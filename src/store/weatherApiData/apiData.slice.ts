@@ -2,7 +2,7 @@ import { createSlice, type PayloadAction } from "@reduxjs/toolkit"
 import type { CityForecast } from "../../types/types"
 
 export type State = {
-    apiResponse: CityForecast | null
+    apiResponse: CityForecast | null,
 }
 
 const initialState: State = {
@@ -13,7 +13,7 @@ const apiDataSlice = createSlice({
     initialState,
     name: "weatherApiData",
     reducers: {
-        changeData: (state, action: PayloadAction<CityForecast>) => {
+        changeData: (state, action: PayloadAction<CityForecast | null>) => {
             state.apiResponse = action.payload;
         },
     },
