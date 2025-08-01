@@ -5,6 +5,7 @@ import { useSelector } from "react-redux"
 import { searchCitySelector } from "../../../store/searchCity/searchCity.selector"
 import { Loading } from "../../Loading"
 import { DedicatedCityBlock } from "../DedicatedCityBlock"
+import { Failed } from "../../Failed"
 
 const cityList = cities as DedicatedCity[]
 
@@ -31,7 +32,7 @@ export function ListOfCities() {
         return(
             <>
             <section className={styles.root}>
-                <Loading/>
+                <Failed type="list"/>
             </section>
             </>
         )

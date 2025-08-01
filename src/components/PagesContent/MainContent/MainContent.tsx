@@ -13,24 +13,31 @@ import { useDispatch } from "react-redux";
 import { getCityForecastSuccess } from "../../../store/weatherApiData/apiData.slice";
 import { cityNameSelector } from "../../../store/cityName/cityName.selector";
 
+export const classicCityName = "London";
+
 export function MainContent() {
     const dispatch = useDispatch();
     const weatherForecast = useSelector(apiDataSelector);
     const cityName = useSelector(cityNameSelector);
-    const classicCityName = "London";
+    const storedCityName = localStorage.getItem("city");
 
     function returnCorrectCityName() {
-        if(cityName) {
-            return cityName;
-        } else {
-            return classicCityName;
+        if(storedCityName !== "null") {
+            return storedCityName;
+        } else if (storedCityName === "null" || null) {
+            if(cityName) {
+                return cityName;
+            } else {
+                return classicCityName;
+            }
         }
     }
 
     useEffect(() => {
         async function getWeatherForecast() {
-            const data = await getCityForecast(returnCorrectCityName());
+            const data = await getCityForecast(returnCorrectCityName()!);
             dispatch(getCityForecastSuccess(data));
+            localStorage.setItem("city", String(cityName));
         }
 
         getWeatherForecast();
