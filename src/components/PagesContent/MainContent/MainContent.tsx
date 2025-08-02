@@ -19,29 +19,30 @@ export function MainContent() {
     const dispatch = useDispatch();
     const weatherForecast = useSelector(apiDataSelector);
     const cityName = useSelector(cityNameSelector);
-    const storedCityName = localStorage.getItem("city");
+    //const storedCityName = localStorage.getItem("city");
 
     function returnCorrectCityName() {
-        if(storedCityName !== "null") {
-            return storedCityName;
-        } else if (storedCityName === "null" || null) {
+        // if(storedCityName !== "null") {
+        //     return storedCityName;
+        // } else if (storedCityName === "null" || null) {
             if(cityName) {
                 return cityName;
             } else {
                 return classicCityName;
             }
-        }
     }
 
     useEffect(() => {
         async function getWeatherForecast() {
             const data = await getCityForecast(returnCorrectCityName()!);
             dispatch(getCityForecastSuccess(data));
-            localStorage.setItem("city", String(cityName));
+            //localStorage.setItem("city", String(cityName));
         }
 
         getWeatherForecast();
     }, [])
+
+    console.log(weatherForecast)
 
     if (!weatherForecast) {
         return(

@@ -3,7 +3,6 @@ import cities from "../../../json/cities.json"
 import type { DedicatedCity } from "../../../types/types"
 import { useSelector } from "react-redux"
 import { searchCitySelector } from "../../../store/searchCity/searchCity.selector"
-import { Loading } from "../../Loading"
 import { DedicatedCityBlock } from "../DedicatedCityBlock"
 import { Failed } from "../../Failed"
 

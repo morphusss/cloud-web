@@ -9,7 +9,7 @@
 }
   
 $font-styles: "Rubik", "Rubik-Italic";
-$light-theme-bg: #E6DFD5;
+$light-theme-bg: #ffffff;
 $dark-theme-bg: #262223;
 
 *{
@@ -26,8 +26,7 @@ $dark-theme-bg: #262223;
 
   color-scheme: light dark;
   color: black;
-  //background-color: $light-theme-bg;
-  background-image: url("./assets/images/background/gradient.jpg");
+  background-color: $light-theme-bg;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
