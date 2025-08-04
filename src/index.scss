@@ -8,9 +8,21 @@
   src: url("./assets/fonts/RubikFont/Rubik-Italic-VariableFont_wght.ttf");
 }
   
+@mixin dark_theme {
+  background-color: $dark-theme-bg;
+  color: $dark-theme-text-color;
+}
+
+@mixin light_theme {
+  background-color: $light-theme-bg;
+  color: $light-theme-text-color;
+}
+
 $font-styles: "Rubik", "Rubik-Italic";
 $light-theme-bg: #ffffff;
 $dark-theme-bg: #262223;
+$light-theme-text-color: #262223;
+$dark-theme-text-color: #ffffff;
 
 *{
   margin: 0;
@@ -23,7 +35,6 @@ $dark-theme-bg: #262223;
   font-family: $font-styles;
   line-height: 1.5;
   font-weight: 400;
-
   color-scheme: light dark;
   color: black;
   background-color: $light-theme-bg;

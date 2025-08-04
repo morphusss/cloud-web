@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux"
 import styles from "./DayWeatherDetailsComponent.module.scss"
-import { apiDataSelector } from "../../../store/weatherApiData/apiData.selector"
+import { weatherForecastSelector } from "../../../store/weatherForecast/weatherForecast.selector"
 import uv_classification from "../../../json/uv_classification.json"
 import wind_speed_classification from "../../../json/wind_speed_classification.json"
 import aqi_classification from "../../../json/aqi_classification.json"
@@ -15,7 +15,7 @@ const listOfWindSpeed = wind_speed_classification as WindSpeed[];
 const listOfAqi = aqi_classification as AirQualityIndex[];
 
 export function DayWeatherDetailsComponent(props: Props) {
-    const preciseWeatherDetails = useSelector(apiDataSelector)?.current;
+    const preciseWeatherDetails = useSelector(weatherForecastSelector).cityForecast?.current;
 
     function setPreciseBackgroundColor() {
         function setLevelColor (list: IndexUV[] | WindSpeed[] | AirQualityIndex[], param: number | undefined) {

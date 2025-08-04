@@ -1,14 +1,16 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import { apiDataReducer } from "./weatherApiData/apiData.slice";
+import { weatherForecastReducer } from "./weatherForecast/weatherForecast.slice";
 import { searchCityReducer } from "./searchCity/searchCity.slice";
 import { cityNameReducer } from "./cityName/cityName.slice";
 import { cityGeoReducer } from "./cityGeoposition/cityGeoposition.slice";
+import { themeStyleReducer } from "./themeStyle/themeStyle.slice";
 
 const Reducers = combineReducers({
-    weatherApiData: apiDataReducer,
+    weatherForecast: weatherForecastReducer,
     searchCity: searchCityReducer,
     cityName: cityNameReducer,
     cityGeo: cityGeoReducer,
+    themeStyle: themeStyleReducer,
 })
 
 export default configureStore({

@@ -8,41 +8,56 @@ import { MapButtonBlock } from "../../MainPageComponents/MapButtonBlock";
 import { Loading } from "../../Loading";
 import styles from "./MainContent.module.scss"
 import { useSelector } from "react-redux";
-import { apiDataSelector } from "../../../store/weatherApiData/apiData.selector";
+import { weatherForecastSelector } from "../../../store/weatherForecast/weatherForecast.selector";
 import { useDispatch } from "react-redux";
-import { getCityForecastSuccess } from "../../../store/weatherApiData/apiData.slice";
+import { getCityForecastFailed, getCityForecastSuccess } from "../../../store/weatherForecast/weatherForecast.slice";
 import { cityNameSelector } from "../../../store/cityName/cityName.selector";
+import axios from "axios";
+import { Failed } from "../../Failed";
 
 export const classicCityName = "London";
 
 export function MainContent() {
     const dispatch = useDispatch();
-    const weatherForecast = useSelector(apiDataSelector);
+    const weatherForecast = useSelector(weatherForecastSelector).cityForecast;
+    const apiError = useSelector(weatherForecastSelector).errorResponse;
     const cityName = useSelector(cityNameSelector);
-    //const storedCityName = localStorage.getItem("city");
+    const storedCityName = localStorage.getItem("city");
+
 
     function returnCorrectCityName() {
-        // if(storedCityName !== "null") {
-        //     return storedCityName;
-        // } else if (storedCityName === "null" || null) {
-            if(cityName) {
-                return cityName;
-            } else {
-                return classicCityName;
-            }
+        if(cityName) {
+            return cityName;
+        } else if (storedCityName){
+            return storedCityName;
+        } else {
+            return classicCityName;
+        }
     }
 
     useEffect(() => {
         async function getWeatherForecast() {
             const data = await getCityForecast(returnCorrectCityName()!);
-            dispatch(getCityForecastSuccess(data));
-            //localStorage.setItem("city", String(cityName));
+            if(axios.isAxiosError(data)) {
+                dispatch(getCityForecastFailed(data));
+            } else {
+                dispatch(getCityForecastSuccess(data));
+                localStorage.setItem("city", String(data?.location.name));
+            }
         }
 
         getWeatherForecast();
     }, [])
 
-    console.log(weatherForecast)
+    if(axios.isAxiosError(apiError)){
+        return(
+            <>
+            <section className={styles.root}>
+                <Failed type="main"/>
+            </section>
+            </>
+        )
+    }
 
     if (!weatherForecast) {
         return(

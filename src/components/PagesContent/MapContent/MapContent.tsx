@@ -1,19 +1,21 @@
 import { useDispatch, useSelector } from "react-redux"
-import { apiDataSelector } from "../../../store/weatherApiData/apiData.selector";
+import { weatherForecastSelector } from "../../../store/weatherForecast/weatherForecast.selector";
 import { classicCityName } from "../MainContent";
 import { Map } from "../../Map";
 import styles from "./MapContent.module.scss"
 import { cityGeoSelector } from "../../../store/cityGeoposition/cityGeoposition.selector";
 import { useEffect } from "react";
 import { getCityForecast } from "../../../api";
-import { getCityForecastSuccess } from "../../../store/weatherApiData/apiData.slice";
-import { Loading } from "../../Loading";
+import { getCityForecastFailed, getCityForecastSuccess } from "../../../store/weatherForecast/weatherForecast.slice";
+import axios from "axios";
+import { Failed } from "../../Failed";
 
 
 export function MapContent() {
     const dispatch = useDispatch();
     const cityGeolocationSelector = useSelector(cityGeoSelector);
-    const cityForecastSelector = useSelector(apiDataSelector);
+    const cityForecastSelector = useSelector(weatherForecastSelector).cityForecast;
+    const apiError = useSelector(weatherForecastSelector).errorResponse;
     const storedCityName = localStorage.getItem("city");
 
     function returnObjectOfGeoDetails() {
@@ -32,28 +34,30 @@ export function MapContent() {
     async function checkIfGeoDataAvailable() {
         if (!cityForecastSelector && !cityGeolocationSelector) {
             const data = await getCityForecast(storedCityName ? storedCityName : classicCityName);
-            dispatch(getCityForecastSuccess(data));
-            localStorage.setItem("city", String(data?.location.name))
+            if(axios.isAxiosError(data)) {
+                dispatch(getCityForecastFailed(data));
+            } else {
+                dispatch(getCityForecastSuccess(data));
+                localStorage.setItem("city", String(data?.location.name));
+            }
         } else if(!cityForecastSelector) {
             cityName = cityGeolocationSelector?.cityName;
         } else if (!cityGeolocationSelector){
-            cityName = cityForecastSelector.location.name;
+            cityName = cityForecastSelector?.location.name;
         } else {
             cityName = cityGeolocationSelector?.cityName;
         }
     }
 
-    console.log(cityGeolocationSelector)
-
     useEffect(() => {
         checkIfGeoDataAvailable();
     }, [])
 
-    if(!cityForecastSelector) {
+    if(!cityForecastSelector || axios.isAxiosError(apiError)) {
         return(
             <>
             <section className={styles.root}>
-                <Loading/>
+                <Failed type="main"/>
             </section>
             </>
         )

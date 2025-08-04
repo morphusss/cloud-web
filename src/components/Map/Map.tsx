@@ -1,21 +1,16 @@
-import { useSelector } from "react-redux";
-import { cityGeoSelector } from "../../store/cityGeoposition/cityGeoposition.selector";
-import { apiDataSelector } from "../../store/weatherApiData/apiData.selector";
+import type { GeoDetails } from "../../types/types";
 import { useRef, useEffect } from 'react';
 import mapboxgl from 'mapbox-gl';
 
 import 'mapbox-gl/dist/mapbox-gl.css';
 
 import styles from "./Map.module.scss";
-import type { GeoDetails } from "../../types/types";
 
 type Props = {
     cityGeo: GeoDetails,
 }
 
 export function Map(props: Props) {
-    const cityGeoDetails = useSelector(cityGeoSelector);
-    const standardCityGeoDetails = useSelector(apiDataSelector)?.location;
 
     const mapRef = useRef<Map$1 | null>(null);
     const mapContainerRef = useRef<HTMLElement | string | null>(null);

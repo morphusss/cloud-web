@@ -1,11 +1,11 @@
 import { useSelector } from "react-redux"
 import styles from "./MainWeatherBlock.module.scss"
-import { apiDataSelector } from "../../../store/weatherApiData/apiData.selector"
+import { weatherForecastSelector } from "../../../store/weatherForecast/weatherForecast.selector"
 import { showCorrectIcon } from "./script"
 
 
 export function MainWeatherBlock() {
-    const selector = useSelector(apiDataSelector)
+    const selector = useSelector(weatherForecastSelector)?.cityForecast;
 
 
     return(

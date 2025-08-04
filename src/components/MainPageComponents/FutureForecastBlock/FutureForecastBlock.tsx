@@ -1,10 +1,11 @@
 import { useEffect, useRef, useState } from "react"
 import styles from "./FutureForecastBlock.module.scss"
 import { useSelector } from "react-redux";
-import { apiDataSelector } from "../../../store/weatherApiData/apiData.selector";
+import { weatherForecastSelector } from "../../../store/weatherForecast/weatherForecast.selector";
 import type { ForecastPerDay, HourlyForecast } from "../../../types/types";
 import { ChildFutureForecastForTheDayBlock } from "../ChildFutureForecastForTheDayBLock";
 import { ChildFutureForecastForDaysBlock } from "../ChildFutureForecastForDaysBlock";
+import { themeStyleSelector } from "../../../store/themeStyle/themeStyle.selector";
 
 export function FutureForecastBlock() {
     const slider = useRef(null);
@@ -15,7 +16,10 @@ export function FutureForecastBlock() {
     const [ hourList, setHourList ] = useState<HourlyForecast[]>([]);
     const [ dayList, setDayList ] = useState<ForecastPerDay[]>([]);
     const [ particularDayHours, setParticularDayHours ] = useState<HourlyForecast[] | null>(null);
-    const weatherForecast = useSelector(apiDataSelector);
+    const weatherForecast = useSelector(weatherForecastSelector).cityForecast;
+    const isDarkSelector = useSelector(themeStyleSelector);
+    const localStorageTheme = localStorage.getItem("isDark");
+
 
     function returnCorrectTitle() {
         if(isForecastForDays) {
@@ -96,6 +100,10 @@ export function FutureForecastBlock() {
 
     }
 
+    function returnCorrectTitleColor(){
+        if(isDarkSelector === "true" || localStorageTheme === "true") return "white";
+        if(isDarkSelector === "false" || localStorageTheme === "false") return "black";
+    }
 
     useEffect(() => {
         if (weatherForecast) {
@@ -109,7 +117,7 @@ export function FutureForecastBlock() {
         <section className={styles.root}>  
             <section className={styles.componentsWrapper}>
                 <section className={styles.buttonWrapper}>
-                    <button className={styles.button} onClick={() => setIsForecastForDay((prev) => !prev)}>{returnCorrectTitle()}</button>
+                    <button className={styles.button}  style={{color: returnCorrectTitleColor(),}} onClick={() => setIsForecastForDay((prev) => !prev)}>{returnCorrectTitle()}</button>
                 </section>
                 <section className={styles.forecastTableWrapper} >
                     {showCorrectForecastTable()}

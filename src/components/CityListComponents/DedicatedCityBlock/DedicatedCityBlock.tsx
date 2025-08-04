@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom"
 import type { DedicatedCity } from "../../../types/types"
-import ArrowLink from "../../../assets/svg/black/goTo.svg"
+import ArrowLink from "@/svg/black/goTo.svg"
+import ArrowLinkWhite from "@/svg/white/goTo_white.svg"
 import styles from "./DedicatedCityBlock.module.scss"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { getCityName } from "../../../store/cityName/cityName.slice"
+import { themeStyleSelector } from "../../../store/themeStyle/themeStyle.selector"
 
 type Props = {
     data: DedicatedCity,
@@ -12,7 +14,13 @@ type Props = {
 
 export function DedicatedCityBlock(props: Props) {
     const dispatch = useDispatch();
+    const isDarkSelector = useSelector(themeStyleSelector);
+    const localStorageTheme = localStorage.getItem("isDark");
 
+    function returnCorrectImg(blackLogo: string, whiteLogo: string) {
+        if(isDarkSelector === "true" || localStorageTheme === "true") return whiteLogo;
+        if(isDarkSelector === "false" || localStorageTheme === "false") return blackLogo;
+    }
 
     return(
         <>
@@ -24,7 +32,7 @@ export function DedicatedCityBlock(props: Props) {
                 <section className={styles.buttonWrapper}>
                     <Link to={"/"}> 
                     <section className={styles.ImgWrapper} onClick={() => dispatch(getCityName(props.data.name))}>
-                        <img src={ArrowLink} alt="go to home page" className={styles.goToImg}/>
+                        <img src={returnCorrectImg(ArrowLink, ArrowLinkWhite)} alt="go to home page" className={styles.goToImg}/>
                     </section>
                     </Link>
                 </section>
