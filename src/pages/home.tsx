@@ -1,7 +1,7 @@
-import { Header } from "../components/Header";
-import { MainContent } from "../components/PagesContent/MainContent";
-import { useSelector } from "react-redux";
 import { themeStyleSelector } from "../store/themeStyle/themeStyle.selector";
+import { MainContent } from "../components/PagesContent/MainContent";
+import { Header } from "../components/Header";
+import { useSelector } from "react-redux";
 import styles from "../styles/pages.module.scss"
 
 export function Home() {

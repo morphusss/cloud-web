@@ -1,7 +1,7 @@
-import styles from  "./CityNameBlock.module.scss"
-import { useSelector } from "react-redux"
 import { weatherForecastSelector } from "../../../store/weatherForecast/weatherForecast.selector"
+import { useSelector } from "react-redux"
 import { useState } from "react";
+import styles from  "./CityNameBlock.module.scss"
 
 export function CityNameBlock() {
     const selector = useSelector(weatherForecastSelector).cityForecast;

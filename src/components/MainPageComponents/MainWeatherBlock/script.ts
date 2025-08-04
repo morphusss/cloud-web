@@ -1,12 +1,12 @@
-import Sunny from "../../../assets/images/weatherTypes/sunny_icon.png"
-import ClearMoon from "../../../assets/images/weatherTypes/moon_icon.png"
-import Cloudy from "../../../assets/images/weatherTypes/clouds_icon.png"
-import LightRain from "../../../assets/images/weatherTypes/light_rain_icon.png"
-import MediumRain from "../../../assets/images/weatherTypes/medium_rain_icon.png"
-import HeavyRain from "../../../assets/images/weatherTypes/heavy_rain_icon.png"
-import Fog from "../../../assets/images/weatherTypes/fog_icon.png"
-import Snow from "../../../assets/images/weatherTypes/snow_icon.png"
-import Thunder from "../../../assets/images/weatherTypes/thunder_icon.png"
+import Sunny from "@/images/weatherTypes/sunny_icon.png"
+import ClearMoon from "@/images/weatherTypes/moon_icon.png"
+import Cloudy from "@/images/weatherTypes/clouds_icon.png"
+import LightRain from "@/images/weatherTypes/light_rain_icon.png"
+import MediumRain from "@/images/weatherTypes/medium_rain_icon.png"
+import HeavyRain from "@/images/weatherTypes/heavy_rain_icon.png"
+import Fog from "@/images/weatherTypes/fog_icon.png"
+import Snow from "@/images/weatherTypes/snow_icon.png"
+import Thunder from "@/images/weatherTypes/thunder_icon.png"
 
 export function showCorrectIcon (type: string | undefined) {
     switch(type) {

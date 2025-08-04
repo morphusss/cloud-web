@@ -1,5 +1,5 @@
-import styles from "./DayWeatherDetails.module.scss";
 import { DayWeatherDetailsComponent } from "../DayWeatherDetailsComponent";
+import styles from "./DayWeatherDetails.module.scss";
 
 const detailsList = [
     { type: "uv" },

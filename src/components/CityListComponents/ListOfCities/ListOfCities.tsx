@@ -1,10 +1,10 @@
-import styles from "./ListOfCities.module.scss"
-import cities from "../../../json/cities.json"
-import type { DedicatedCity } from "../../../types/types"
-import { useSelector } from "react-redux"
 import { searchCitySelector } from "../../../store/searchCity/searchCity.selector"
+import type { DedicatedCity } from "../../../types/types"
 import { DedicatedCityBlock } from "../DedicatedCityBlock"
 import { Failed } from "../../Failed"
+import cities from "../../../json/cities.json"
+import { useSelector } from "react-redux"
+import styles from "./ListOfCities.module.scss"
 
 const cityList = cities as DedicatedCity[]
 

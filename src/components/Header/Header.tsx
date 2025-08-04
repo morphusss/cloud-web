@@ -1,3 +1,5 @@
+import { themeStyleSelector } from "../../store/themeStyle/themeStyle.selector"
+import { ThemeSwitcher } from "../ThemeSwitcher"
 import CloudLogo from "@/svg/black/cloud.svg"
 import CloudLogoWhite from "@/svg/white/cloud_white.svg"
 import HomeLogo from "@/svg/black/home.svg"
@@ -7,10 +9,8 @@ import SearchLogoWhite from "@/svg/white/search_white.svg"
 import MapsLogo from "@/svg/black/map.svg"
 import MapsLogoWhite from "@/svg/white/map_white.svg"
 import { Link } from "react-router-dom"
-import styles from  "./Header.module.scss"
-import { ThemeSwitcher } from "../ThemeSwitcher"
 import { useSelector } from "react-redux"
-import { themeStyleSelector } from "../../store/themeStyle/themeStyle.selector"
+import styles from  "./Header.module.scss"
 
 export function Header() {
     const isDarkSelector = useSelector(themeStyleSelector);

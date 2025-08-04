@@ -1,11 +1,11 @@
-import { Link } from "react-router-dom"
+import { themeStyleSelector } from "../../../store/themeStyle/themeStyle.selector"
+import { getCityName } from "../../../store/cityName/cityName.slice"
 import type { DedicatedCity } from "../../../types/types"
 import ArrowLink from "@/svg/black/goTo.svg"
 import ArrowLinkWhite from "@/svg/white/goTo_white.svg"
-import styles from "./DedicatedCityBlock.module.scss"
 import { useDispatch, useSelector } from "react-redux"
-import { getCityName } from "../../../store/cityName/cityName.slice"
-import { themeStyleSelector } from "../../../store/themeStyle/themeStyle.selector"
+import { Link } from "react-router-dom"
+import styles from "./DedicatedCityBlock.module.scss"
 
 type Props = {
     data: DedicatedCity,

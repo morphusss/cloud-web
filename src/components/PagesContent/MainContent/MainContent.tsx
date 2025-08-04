@@ -1,19 +1,19 @@
-import { useEffect } from "react"
-import { getCityForecast } from "../../../api"
-import { MainWeatherBlock } from "../../MainPageComponents/MainWeatherBlock";
-import { CityNameBlock } from "../../MainPageComponents/CityNameBlock";
+import { getCityForecastFailed, getCityForecastSuccess } from "../../../store/weatherForecast/weatherForecast.slice";
+import { weatherForecastSelector } from "../../../store/weatherForecast/weatherForecast.selector";
 import { FutureForecastBlock } from "../../MainPageComponents/FutureForecastBlock";
 import { DayWeatherDetails } from "../../MainPageComponents/DayWeatherDetails";
-import { MapButtonBlock } from "../../MainPageComponents/MapButtonBlock";
-import { Loading } from "../../Loading";
-import styles from "./MainContent.module.scss"
-import { useSelector } from "react-redux";
-import { weatherForecastSelector } from "../../../store/weatherForecast/weatherForecast.selector";
-import { useDispatch } from "react-redux";
-import { getCityForecastFailed, getCityForecastSuccess } from "../../../store/weatherForecast/weatherForecast.slice";
+import { MainWeatherBlock } from "../../MainPageComponents/MainWeatherBlock";
 import { cityNameSelector } from "../../../store/cityName/cityName.selector";
-import axios from "axios";
+import { MapButtonBlock } from "../../MainPageComponents/MapButtonBlock";
+import { CityNameBlock } from "../../MainPageComponents/CityNameBlock";
 import { Failed } from "../../Failed";
+import { Loading } from "../../Loading";
+import { getCityForecast } from "../../../api";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react"
+import axios from "axios";
+import styles from "./MainContent.module.scss";
 
 export const classicCityName = "London";
 

@@ -1,14 +1,14 @@
-import { useDispatch, useSelector } from "react-redux"
-import { weatherForecastSelector } from "../../../store/weatherForecast/weatherForecast.selector";
-import { classicCityName } from "../MainContent";
-import { Map } from "../../Map";
-import styles from "./MapContent.module.scss"
-import { cityGeoSelector } from "../../../store/cityGeoposition/cityGeoposition.selector";
-import { useEffect } from "react";
-import { getCityForecast } from "../../../api";
 import { getCityForecastFailed, getCityForecastSuccess } from "../../../store/weatherForecast/weatherForecast.slice";
-import axios from "axios";
+import { weatherForecastSelector } from "../../../store/weatherForecast/weatherForecast.selector";
+import { cityGeoSelector } from "../../../store/cityGeoposition/cityGeoposition.selector";
+import { getCityForecast } from "../../../api";
+import { classicCityName } from "../MainContent";
 import { Failed } from "../../Failed";
+import { Map } from "../../Map";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import axios from "axios";
+import styles from "./MapContent.module.scss";
 
 
 export function MapContent() {

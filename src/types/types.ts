@@ -121,37 +121,6 @@ export type DedicatedCity = {
     wikiDataId?: string,
 }
 
-export type IndexUV = {
-    id: number,
-    level_name: string,
-    min_level: number,
-    max_level: number,
-    level_color: string,
-}
-
-export type WindSpeed = {
-    id: number,
-    level_name: string,
-    min_level: number,
-    max_level: number,
-    level_color: string,
-}
-
-export type AirQualityIndex = {
-    id: number,
-    level_name: string,
-    level_value: string,
-    min_level: number,
-    max_level: number,
-    level_color:  string,
-}
-
-export type GeoDetails = {
-    lon?: number | null,
-    lat?: number | null,
-    cityName?: string | null,
-}
-
 export type HourlyForecast = {
     chance_of_rain: number,
     chance_of_snow: number,
@@ -192,3 +161,35 @@ export type HourlyForecast = {
     windchill_c: number,
     windchill_f: number,
 }
+
+export type IndexUV = {
+    id: number,
+    level_name: string,
+    min_level: number,
+    max_level: number,
+    level_color: string,
+}
+
+export type WindSpeed = {
+    id: number,
+    level_name: string,
+    min_level: number,
+    max_level: number,
+    level_color: string,
+}
+
+export type AirQualityIndex = {
+    id: number,
+    level_name: string,
+    level_value: string,
+    min_level: number,
+    max_level: number,
+    level_color:  string,
+}
+
+export type GeoDetails = {
+    lon?: number | null,
+    lat?: number | null,
+    cityName?: string | null,
+}
+

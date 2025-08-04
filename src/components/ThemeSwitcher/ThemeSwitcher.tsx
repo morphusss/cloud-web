@@ -1,15 +1,15 @@
-import MoonImg from "../../assets/svg/black/moon.svg"
-import SunImg from "../../assets/svg/white/sun_white.svg"
-import { useState } from "react"
-import styles from "./ThemeSwitcher.module.scss"
-import { useDispatch } from "react-redux"
-import { getStyleValue } from "../../store/themeStyle/themeStyle.slice"
+import { getStyleValue } from "../../store/themeStyle/themeStyle.slice";
+import { useDispatch } from "react-redux";
+import { useState } from "react";
+import MoonImg from "@/svg/black/moon.svg";
+import SunImg from "@/svg/white/sun_white.svg";
+import styles from "./ThemeSwitcher.module.scss";
 
 export function ThemeSwitcher() {
     const dispatch = useDispatch();
     const [isDark, setIsDark] = useState(false);
     const localStorageTheme = localStorage.getItem("isDark");
-
+    
     function changeValue() {
         setIsDark((prev) => !prev);
         dispatch(getStyleValue(String(isDark)));
@@ -25,7 +25,7 @@ export function ThemeSwitcher() {
             return isDark ? SunImg : MoonImg;
         }
     }
-
+    
     return(
         <>
         <section className={styles.root}>

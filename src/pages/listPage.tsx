@@ -1,7 +1,7 @@
-import { useSelector } from "react-redux";
-import { Header } from "../components/Header";
-import { CityListContent } from "../components/PagesContent/CityListContent";
 import { themeStyleSelector } from "../store/themeStyle/themeStyle.selector";
+import { CityListContent } from "../components/PagesContent/CityListContent";
+import { Header } from "../components/Header";
+import { useSelector } from "react-redux";
 import styles from "@/src/styles/pages.module.scss"
 
 export function ListPage() {

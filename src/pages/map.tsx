@@ -1,7 +1,7 @@
-import { useSelector } from "react-redux";
-import { Header } from "../components/Header";
-import { MapContent } from "../components/PagesContent/MapContent";
 import { themeStyleSelector } from "../store/themeStyle/themeStyle.selector";
+import { MapContent } from "../components/PagesContent/MapContent";
+import { Header } from "../components/Header";
+import { useSelector } from "react-redux";
 import styles from "@/src/styles/pages.module.scss"
 
 export function Map() {

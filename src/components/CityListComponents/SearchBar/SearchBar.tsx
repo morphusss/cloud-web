@@ -1,10 +1,10 @@
-import { useState, type ChangeEvent } from "react";
+import { themeStyleSelector } from "../../../store/themeStyle/themeStyle.selector";
+import { getSearchValue } from "../../../store/searchCity/searchCity.slice";
 import SearchImg from "@/svg/black/search.svg";
 import SearchImgWhite from "@/svg/white/search_white.svg";
-import styles from "./SearchBar.module.scss";
 import { useDispatch, useSelector } from "react-redux";
-import { getSearchValue } from "../../../store/searchCity/searchCity.slice";
-import { themeStyleSelector } from "../../../store/themeStyle/themeStyle.selector";
+import { useState, type ChangeEvent } from "react";
+import styles from "./SearchBar.module.scss";
 
 export function SearchBar() {
     const dispatch = useDispatch();

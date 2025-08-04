@@ -1,11 +1,11 @@
-import { useEffect, useRef, useState } from "react"
-import styles from "./FutureForecastBlock.module.scss"
-import { useSelector } from "react-redux";
 import { weatherForecastSelector } from "../../../store/weatherForecast/weatherForecast.selector";
-import type { ForecastPerDay, HourlyForecast } from "../../../types/types";
 import { ChildFutureForecastForTheDayBlock } from "../ChildFutureForecastForTheDayBLock";
 import { ChildFutureForecastForDaysBlock } from "../ChildFutureForecastForDaysBlock";
 import { themeStyleSelector } from "../../../store/themeStyle/themeStyle.selector";
+import type { ForecastPerDay, HourlyForecast } from "../../../types/types";
+import { useSelector } from "react-redux";
+import { useEffect, useRef, useState } from "react"
+import styles from "./FutureForecastBlock.module.scss"
 
 export function FutureForecastBlock() {
     const slider = useRef(null);
@@ -39,7 +39,11 @@ export function FutureForecastBlock() {
                         onMouseUp={handleMouseUp}
                         onMouseMove={handleMouseMove}>
                     {dayList.map((day, key) => (
-                        <ChildFutureForecastForDaysBlock day={day} setParticularDayHours={setParticularDayHours} setIsForecastForDay={setIsForecastForDay} key={key}/>
+                        <ChildFutureForecastForDaysBlock 
+                            day={day} 
+                            setParticularDayHours={setParticularDayHours} 
+                            setIsForecastForDay={setIsForecastForDay} key={key}
+                        />
                     ))}
                 </ul>  
                 </>

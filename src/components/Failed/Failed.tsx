@@ -1,8 +1,8 @@
+import { themeStyleSelector } from "../../store/themeStyle/themeStyle.selector";
 import FailedFace from "@/svg/black/failed.svg"
 import FailedFaceWhite from "@/svg/white/failed_white.svg"
-import styles from "./Failed.module.scss"
 import { useSelector } from "react-redux";
-import { themeStyleSelector } from "../../store/themeStyle/themeStyle.selector";
+import styles from "./Failed.module.scss";
 
 type Props = {
     type: string,

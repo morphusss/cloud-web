@@ -1,7 +1,7 @@
-import { useSelector } from "react-redux"
-import styles from "./MainWeatherBlock.module.scss"
 import { weatherForecastSelector } from "../../../store/weatherForecast/weatherForecast.selector"
 import { showCorrectIcon } from "./script"
+import { useSelector } from "react-redux"
+import styles from "./MainWeatherBlock.module.scss"
 
 
 export function MainWeatherBlock() {

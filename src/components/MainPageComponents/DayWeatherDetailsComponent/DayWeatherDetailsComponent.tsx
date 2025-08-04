@@ -1,10 +1,10 @@
-import { useSelector } from "react-redux"
-import styles from "./DayWeatherDetailsComponent.module.scss"
 import { weatherForecastSelector } from "../../../store/weatherForecast/weatherForecast.selector"
+import type { AirQualityIndex, IndexUV, WindSpeed } from "../../../types/types"
 import uv_classification from "../../../json/uv_classification.json"
 import wind_speed_classification from "../../../json/wind_speed_classification.json"
 import aqi_classification from "../../../json/aqi_classification.json"
-import type { AirQualityIndex, IndexUV, WindSpeed } from "../../../types/types"
+import { useSelector } from "react-redux"
+import styles from "./DayWeatherDetailsComponent.module.scss"
 
 type Props = {
     type: string

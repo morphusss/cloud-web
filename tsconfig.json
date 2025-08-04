@@ -5,12 +5,15 @@
     { "path": "./tsconfig.node.json" }
   ],
   "compilerOptions": {
+    "allowJs": true,
     "baseUrl": "./",
     "paths": {
-      "@src": ["src/*"],
-      "@svg": ["src/assets/svg/*"],
       "@components": ["src/components/*"],
-      "@store": ["src/store/*"]
-    }
+      "@store": ["src/store/*"],
+      "@svg": ["src/assets/svg/*"],
+      "@images": ["src/assets/images/*"],
+      "@src": ["src/*"],
+    },
+
   }
 }
