@@ -30,10 +30,9 @@ export function DayWeatherDetailsComponent(props: Props) {
             }
             
             return{
-                backgroundColor: color,
+                background: color,
             }
         }
-
 
         switch(props.type) {
             case("uv"):
@@ -80,14 +79,40 @@ export function DayWeatherDetailsComponent(props: Props) {
         }
     }
 
+    function returnCorrectTitle() {
+        switch(props.type) {
+            case("uv"):
+            return(
+                <>
+                    {"UV index:"}
+                </>
+            )
+            case("wind_speed"): 
+            return(
+                <>
+                    {"Wind Speed (km/h):"}
+                </>
+            )
+            case("air_quality"):
+            return(
+                <>
+                    {"Air quality index:"}
+                </>
+            )
+        }
+    }
+
     return(
         <>
         <section className={styles.root}>
             <section className={styles.detailWrapper}>
+                <section className={styles.blockTitle}>
+                    {returnCorrectTitle()}
+                </section>
                 <section className={styles.backgroundStatusBar}>
                     {setPreciseBackgroundColor()}
                 </section>
-                <section className={styles.foregroundNumberValue}>
+                <section className={styles.foregroundNumberValue} style={{color: "black",}}>
                     {setPreciseStatisticsByType()}
                 </section>
             </section>

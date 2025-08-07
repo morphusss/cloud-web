@@ -2,7 +2,7 @@
     {
         "id": 1,
         "level_name": "low",
-        "min_level": -1,
+        "min_level": 0,
         "max_level": 2,
         "level_color": "#ACD1AF"
     },

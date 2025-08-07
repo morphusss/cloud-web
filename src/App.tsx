@@ -4,6 +4,11 @@ import { Home, ListPage, Map, NotFound } from "./pages"
 import './App.css'
 
 function App() {
+  const isDarkLocalStorage = localStorage.getItem("isDark");
+
+  if(isDarkLocalStorage === null) {
+    localStorage.setItem("isDark", "false");
+  }
 
   return (
     <>
