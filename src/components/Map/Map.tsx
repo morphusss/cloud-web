@@ -1,4 +1,4 @@
-import type { GeoDetails } from "../../types/types";
+import type { GeoDetails } from "@src/types/types";
 import { useRef, useEffect } from 'react';
 import mapboxgl from 'mapbox-gl';
 

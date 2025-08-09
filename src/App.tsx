@@ -1,14 +1,16 @@
 import { HashRouter as Router, Route, Routes } from "react-router"
-import { Home, ListPage, Map, NotFound } from "./pages"
-
+import { Home, ListPage, Map, NotFound } from "@src/pages"
+import { useEffect } from "react";
 import './App.css'
 
 function App() {
   const isDarkLocalStorage = localStorage.getItem("isDark");
 
-  if(isDarkLocalStorage === null) {
+  useEffect(() => {
+    if(isDarkLocalStorage === null) {
     localStorage.setItem("isDark", "false");
-  }
+    }
+  }, [])
 
   return (
     <>

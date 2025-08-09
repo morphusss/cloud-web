@@ -1,8 +1,8 @@
-import { themeStyleSelector } from "../store/themeStyle/themeStyle.selector";
-import { MapContent } from "../components/PagesContent/MapContent";
-import { Header } from "../components/Header";
+import { themeStyleSelector } from "@store/themeStyle/themeStyle.selector";
+import { MapContent } from "@components/PagesContent/MapContent";
+import { Header } from "@components/Header";
 import { useSelector } from "react-redux";
-import styles from "@/src/styles/pages.module.scss"
+import styles from "@src/styles/pages.module.scss"
 
 export function Map() {
     const isDarkSelector = useSelector(themeStyleSelector);

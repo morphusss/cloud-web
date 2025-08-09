@@ -1,4 +1,4 @@
-import { DayWeatherDetailsComponent } from "../DayWeatherDetailsComponent";
+import { DayWeatherDetailsComponent } from "@components/MainPageComponents/DayWeatherDetailsComponent";
 import styles from "./DayWeatherDetails.module.scss";
 
 const detailsList = [

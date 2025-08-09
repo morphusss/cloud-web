@@ -1,9 +1,8 @@
-import { themeStyleSelector } from "../store/themeStyle/themeStyle.selector";
-import { Failed } from "../components/Failed";
-import { Header } from "../components/Header";
+import { themeStyleSelector } from "@store/themeStyle/themeStyle.selector";
+import { Failed } from "@components/Failed";
+import { Header } from "@components/Header";
 import { useSelector } from "react-redux";
-import styles from "@/src/styles/pages.module.scss"
-
+import styles from "@src/styles/pages.module.scss"
 
 export function NotFound() {
     const isDarkSelector = useSelector(themeStyleSelector);

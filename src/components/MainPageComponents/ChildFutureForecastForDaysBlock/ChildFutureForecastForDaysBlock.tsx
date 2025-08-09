@@ -1,4 +1,4 @@
-import type { ForecastPerDay, HourlyForecast } from "../../../types/types"
+import type { ForecastPerDay, HourlyForecast } from "@src/types/types"
 import type { Dispatch, SetStateAction } from "react";
 import styles from "./ChildFutureForecastForDaysBlock.module.scss"
 

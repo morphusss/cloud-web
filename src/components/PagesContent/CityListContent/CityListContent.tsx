@@ -1,5 +1,5 @@
-import { ListOfCities } from "../../CityListComponents/ListOfCities"
-import { SearchBar } from "../../CityListComponents/SearchBar"
+import { ListOfCities } from "@components/CityListComponents/ListOfCities"
+import { SearchBar } from "@components/CityListComponents/SearchBar"
 import styles from "./CityListContent.module.scss"
 
 export function CityListContent() {

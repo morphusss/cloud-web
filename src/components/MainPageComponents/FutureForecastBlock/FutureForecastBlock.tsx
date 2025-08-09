@@ -1,8 +1,8 @@
-import { weatherForecastSelector } from "../../../store/weatherForecast/weatherForecast.selector";
-import { ChildFutureForecastForTheDayBlock } from "../ChildFutureForecastForTheDayBLock";
-import { ChildFutureForecastForDaysBlock } from "../ChildFutureForecastForDaysBlock";
-import { themeStyleSelector } from "../../../store/themeStyle/themeStyle.selector";
-import type { ForecastPerDay, HourlyForecast } from "../../../types/types";
+import { weatherForecastSelector } from "@store/weatherForecast/weatherForecast.selector";
+import { ChildFutureForecastForTheDayBlock } from "@components/MainPageComponents/ChildFutureForecastForTheDayBLock";
+import { ChildFutureForecastForDaysBlock } from "@components/MainPageComponents/ChildFutureForecastForDaysBlock";
+import { themeStyleSelector } from "@store/themeStyle/themeStyle.selector";
+import type { ForecastPerDay, HourlyForecast } from "@src/types/types";
 import { useSelector } from "react-redux";
 import { useEffect, useRef, useState } from "react"
 import styles from "./FutureForecastBlock.module.scss"

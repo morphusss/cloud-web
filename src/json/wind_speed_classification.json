@@ -16,77 +16,77 @@
     {
         "id": 2,
         "level_name": "light breeze",
-        "min_level": 6,
+        "min_level": 5.1,
         "max_level": 11,
         "level_color": "#B2D8D8"
     },
     {
         "id": 3,
         "level_name": "gentle breeze",
-        "min_level": 12,
+        "min_level": 11.1,
         "max_level": 19,
         "level_color": "#ACD1AF"
     },
     {
         "id": 4,
         "level_name": "moderate breeze",
-        "min_level": 20,
+        "min_level": 19.1,
         "max_level": 28,
         "level_color": "#A8EC8A"
     },
     {
         "id": 5,
         "level_name": "fresh breeze",
-        "min_level": 29,
+        "min_level": 28.1,
         "max_level": 38,
         "level_color": "#A6D9AA"
     },
     {
         "id": 6,
         "level_name": "strong breeze",
-        "min_level": 39,
+        "min_level": 38.1,
         "max_level": 49,
         "level_color": "#E6F8D1"
     },
     {
         "id": 7,
         "level_name": "moderate gale",
-        "min_level": 50,
+        "min_level": 49.1,
         "max_level": 61,
         "level_color": "#FFEE8C"
     },
     {
         "id": 8,
         "level_name": "fresh gale",
-        "min_level": 62,
+        "min_level": 61.1,
         "max_level": 74,
         "level_color": "#FFB38A"
     },
     {
         "id": 9,
         "level_name": "strong gale",
-        "min_level": 75,
+        "min_level": 74.1,
         "max_level": 88,
         "level_color": "#FFC067"
     },
     {
         "id": 10,
         "level_name": "whole gale",
-        "min_level": 89,
+        "min_level": 88.1,
         "max_level": 102,
         "level_color": "#EAAAA2"
     },
     {
         "id": 11,
         "level_name": "storm",
-        "min_level": 103,
+        "min_level": 102.1,
         "max_level": 117,
         "level_color": "#FF746C"
     },
     {
         "id": 12,
         "level_name": "hurricane",
-        "min_level": 118,
+        "min_level": 118.1,
         "max_level": 10000,
         "level_color": "#B5406C"
     }

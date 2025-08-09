@@ -1,7 +1,7 @@
-import { weatherForecastSelector } from "../../../store/weatherForecast/weatherForecast.selector";
-import { themeStyleSelector } from "../../../store/themeStyle/themeStyle.selector";
-import { getCityGeo } from "../../../store/cityGeoposition/cityGeoposition.slice";
-import type { GeoDetails } from "../../../types/types";
+import { weatherForecastSelector } from "@store/weatherForecast/weatherForecast.selector";
+import { themeStyleSelector } from "@store/themeStyle/themeStyle.selector";
+import { getCityGeo } from "@store/cityGeoposition/cityGeoposition.slice";
+import type { GeoDetails } from "@src/types/types";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import styles from "./MapButtonBlock.module.scss";
@@ -11,7 +11,6 @@ export function MapButtonBlock() {
     const weatherDetails = useSelector(weatherForecastSelector).cityForecast?.location;
     const isDarkSelector = useSelector(themeStyleSelector);
     const localStorageTheme = localStorage.getItem("isDark");
-
 
     function sendGeoToStore() {
         const details: GeoDetails = {

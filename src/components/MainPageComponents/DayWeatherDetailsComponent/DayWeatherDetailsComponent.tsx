@@ -1,8 +1,8 @@
-import { weatherForecastSelector } from "../../../store/weatherForecast/weatherForecast.selector"
-import type { AirQualityIndex, IndexUV, WindSpeed } from "../../../types/types"
-import uv_classification from "../../../json/uv_classification.json"
-import wind_speed_classification from "../../../json/wind_speed_classification.json"
-import aqi_classification from "../../../json/aqi_classification.json"
+import { weatherForecastSelector } from "@store/weatherForecast/weatherForecast.selector"
+import type { AirQualityIndex, IndexUV, WindSpeed } from "@src/types/types"
+import uv_classification from "@src/json/uv_classification.json"
+import wind_speed_classification from "@src/json/wind_speed_classification.json"
+import aqi_classification from "@src/json/aqi_classification.json"
 import { useSelector } from "react-redux"
 import styles from "./DayWeatherDetailsComponent.module.scss"
 
@@ -19,18 +19,18 @@ export function DayWeatherDetailsComponent(props: Props) {
 
     function setPreciseBackgroundColor() {
         function setLevelColor (list: IndexUV[] | WindSpeed[] | AirQualityIndex[], param: number | undefined) {
-            let color: string = "";
+            let background: string = "#fff";
 
             if(param) {
                 list.map((level) => {
                     if(param >= level.min_level && param <= level.max_level) {
-                        color = level.level_color;
+                        background = level.level_color;
                     }
                 })
             }
             
             return{
-                background: color,
+                background,
             }
         }
 

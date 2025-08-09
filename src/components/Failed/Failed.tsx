@@ -1,6 +1,6 @@
-import { themeStyleSelector } from "../../store/themeStyle/themeStyle.selector";
-import FailedFace from "@/svg/black/failed.svg"
-import FailedFaceWhite from "@/svg/white/failed_white.svg"
+import { themeStyleSelector } from "@store/themeStyle/themeStyle.selector";
+import FailedFace from "@svg/black/failed.svg"
+import FailedFaceWhite from "@svg/white/failed_white.svg"
 import { useSelector } from "react-redux";
 import styles from "./Failed.module.scss";
 

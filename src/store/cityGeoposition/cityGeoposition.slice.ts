@@ -1,5 +1,5 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit"
-import type { GeoDetails } from "../../types/types"
+import type { GeoDetails } from "@src/types/types"
 
 export type State = {
     cityGeo: GeoDetails | null,

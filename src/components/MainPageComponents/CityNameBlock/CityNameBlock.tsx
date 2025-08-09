@@ -1,4 +1,4 @@
-import { weatherForecastSelector } from "../../../store/weatherForecast/weatherForecast.selector"
+import { weatherForecastSelector } from "@store/weatherForecast/weatherForecast.selector"
 import { useSelector } from "react-redux"
 import { useState } from "react";
 import styles from  "./CityNameBlock.module.scss"

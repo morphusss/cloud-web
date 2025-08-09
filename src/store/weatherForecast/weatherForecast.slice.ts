@@ -1,5 +1,5 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit"
-import type { CityForecast } from "../../types/types"
+import type { CityForecast } from "@src/types/types"
 import type { AxiosError } from "axios"
 
 export type State = {

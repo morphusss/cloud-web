@@ -1,14 +1,14 @@
-import { getCityForecastFailed, getCityForecastSuccess } from "../../../store/weatherForecast/weatherForecast.slice";
-import { weatherForecastSelector } from "../../../store/weatherForecast/weatherForecast.selector";
-import { FutureForecastBlock } from "../../MainPageComponents/FutureForecastBlock";
-import { DayWeatherDetails } from "../../MainPageComponents/DayWeatherDetails";
-import { MainWeatherBlock } from "../../MainPageComponents/MainWeatherBlock";
-import { cityNameSelector } from "../../../store/cityName/cityName.selector";
-import { MapButtonBlock } from "../../MainPageComponents/MapButtonBlock";
-import { CityNameBlock } from "../../MainPageComponents/CityNameBlock";
-import { Failed } from "../../Failed";
-import { Loading } from "../../Loading";
-import { getCityForecast } from "../../../api";
+import { getCityForecastFailed, getCityForecastSuccess } from "@store/weatherForecast/weatherForecast.slice";
+import { weatherForecastSelector } from "@store/weatherForecast/weatherForecast.selector";
+import { FutureForecastBlock } from "@components/MainPageComponents/FutureForecastBlock";
+import { DayWeatherDetails } from "@components/MainPageComponents/DayWeatherDetails";
+import { MainWeatherBlock } from "@components/MainPageComponents/MainWeatherBlock";
+import { cityNameSelector } from "@store/cityName/cityName.selector";
+import { MapButtonBlock } from "@components/MainPageComponents/MapButtonBlock";
+import { CityNameBlock } from "@components/MainPageComponents/CityNameBlock";
+import { Failed } from "@components/Failed";
+import { Loading } from "@components/Loading";
+import { getCityForecast } from "@src/api";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react"
@@ -34,6 +34,8 @@ export function MainContent() {
             return classicCityName;
         }
     }
+
+    console.log(weatherForecast);
 
     useEffect(() => {
         async function getWeatherForecast() {

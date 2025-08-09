@@ -1,4 +1,4 @@
-import { weatherForecastSelector } from "../../../store/weatherForecast/weatherForecast.selector"
+import { weatherForecastSelector } from "@store/weatherForecast/weatherForecast.selector"
 import { showCorrectIcon } from "./script"
 import { useSelector } from "react-redux"
 import styles from "./MainWeatherBlock.module.scss"
@@ -22,11 +22,11 @@ export function MainWeatherBlock() {
                 </section>
                 <section className={styles.weatherInfo}>
                     <section className={styles.weatherTemperatureTitle}>Temperature:</section>
-                    {selector?.current.temp_c}
+                    {selector?.current.temp_c} °C
                 </section>
                 <section className={styles.weatherInfo}>
                     <section className={styles.weatherFeelLikeTitle}>Feels like:</section>
-                    {selector?.current.feelslike_c}
+                    {selector?.current.feelslike_c} °C
                 </section>
             </section>
         </section>

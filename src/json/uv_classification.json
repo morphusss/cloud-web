@@ -9,28 +9,28 @@
     {
         "id": 2,
         "level_name": "medium",
-        "min_level": 3,
+        "min_level": 2,
         "max_level": 5,
         "level_color": "#FFEE8C"
     },
     {
         "id": 3,
         "level_name": "high",
-        "min_level": 6,
+        "min_level": 5,
         "max_level": 7,
         "level_color": "#FFC067"
     },
     {
         "id": 4,
         "level_name": "very high",
-        "min_level": 8,
+        "min_level": 7,
         "max_level": 10,
         "level_color": "#FF746C"
     },
     {
         "id": 5,
         "level_name": "extremely high",
-        "min_level": 11,
+        "min_level": 10,
         "max_level": 1000,
         "level_color": "#A66FB5"
     }

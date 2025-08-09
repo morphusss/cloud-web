@@ -1,8 +1,8 @@
-import { searchCitySelector } from "../../../store/searchCity/searchCity.selector"
-import type { DedicatedCity } from "../../../types/types"
-import { DedicatedCityBlock } from "../DedicatedCityBlock"
-import { Failed } from "../../Failed"
-import cities from "../../../json/cities.json"
+import { searchCitySelector } from "@store/searchCity/searchCity.selector"
+import type { DedicatedCity } from "@src/types/types"
+import { DedicatedCityBlock } from "@components/CityListComponents/DedicatedCityBlock"
+import { Failed } from "@components/Failed"
+import cities from "@src/json/cities.json"
 import { useSelector } from "react-redux"
 import styles from "./ListOfCities.module.scss"
 

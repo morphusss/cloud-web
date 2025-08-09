@@ -1,6 +1,6 @@
-import { themeStyleSelector } from "../../store/themeStyle/themeStyle.selector";
-import LoadingSpinner from "@/svg/black/loading.svg"
-import LoadingSpinnerWhite from "@/svg/white/loading_white.svg"
+import { themeStyleSelector } from "@store/themeStyle/themeStyle.selector";
+import LoadingSpinner from "@svg/black/loading.svg"
+import LoadingSpinnerWhite from "@svg/white/loading_white.svg"
 import { useSelector } from "react-redux";
 import styles from "./Loading.module.scss"
 

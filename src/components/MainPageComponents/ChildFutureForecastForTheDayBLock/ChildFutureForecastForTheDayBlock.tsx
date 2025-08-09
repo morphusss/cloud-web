@@ -1,5 +1,5 @@
+import type { HourlyForecast } from "@src/types/types"
 import styles from "./ChildFutureForecastForTheDayBlock.module.scss"
-import type { HourlyForecast } from "../../../types/types"
 
 type Props = {
     hour: HourlyForecast,

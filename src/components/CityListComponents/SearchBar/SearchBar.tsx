@@ -1,17 +1,18 @@
-import { themeStyleSelector } from "../../../store/themeStyle/themeStyle.selector";
-import { getSearchValue } from "../../../store/searchCity/searchCity.slice";
-import SearchImg from "@/svg/black/search.svg";
-import SearchImgWhite from "@/svg/white/search_white.svg";
+import { themeStyleSelector } from "@store/themeStyle/themeStyle.selector";
+import { getSearchValue } from "@store/searchCity/searchCity.slice";
+import SearchImg from "@svg/black/search.svg";
+import SearchImgWhite from "@svg/white/search_white.svg";
 import { useDispatch, useSelector } from "react-redux";
-import { useState, type ChangeEvent } from "react";
+import { useEffect, useState, type ChangeEvent } from "react";
 import styles from "./SearchBar.module.scss";
+import useDebounce from "@src/hooks/useDebounce";
 
 export function SearchBar() {
     const dispatch = useDispatch();
     const [ searchData, setSearchData ] = useState("");
     const isDarkSelector = useSelector(themeStyleSelector);
     const localStorageTheme = localStorage.getItem("isDark");
-
+    const debouncedSearchValue = useDebounce(searchData, 500);
 
     function returnCorrectImg(blackLogo: string, whiteLogo: string) {
         if(isDarkSelector === "true" || localStorageTheme === "true") return whiteLogo;
@@ -20,9 +21,13 @@ export function SearchBar() {
 
     function handleInputChange (e: ChangeEvent<HTMLInputElement>) {
         const searchItem = e.target.value;
-        setSearchData(searchItem)
-        dispatch(getSearchValue(searchItem));
+        setSearchData(searchItem);
     }
+    
+    useEffect(() => {
+        console.log(searchData)
+        dispatch(getSearchValue(searchData));
+    }, [debouncedSearchValue])
 
     return(
         <>
