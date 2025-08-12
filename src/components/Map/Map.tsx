@@ -12,19 +12,19 @@ type Props = {
 
 export function Map(props: Props) {
 
-    const mapRef = useRef<Map$1 | null>(null);
-    const mapContainerRef = useRef<HTMLElement | string | null>(null);
+    const mapRef = useRef<mapboxgl.Map | null>(null);
+    const mapContainerRef = useRef<HTMLElement | null>(null);
   
     useEffect(() => {
       mapboxgl.accessToken = import.meta.env.VITE_MAP_ACCESS_TOKEN;
       mapRef.current = new mapboxgl.Map({
-        container: mapContainerRef.current,
+        container: mapContainerRef.current ?? "",
         center: [Number(props.cityGeo.lon), Number(props.cityGeo.lat)],
         zoom: 9.5,
       });
   
       return () => {
-        mapRef.current.remove()
+        mapRef.current?.remove()
       }
     }, [])
 

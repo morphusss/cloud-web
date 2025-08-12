@@ -4,11 +4,11 @@ import { ChildFutureForecastForDaysBlock } from "@components/MainPageComponents/
 import { themeStyleSelector } from "@store/themeStyle/themeStyle.selector";
 import type { ForecastPerDay, HourlyForecast } from "@src/types/types";
 import { useSelector } from "react-redux";
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef, useState, type MouseEvent } from "react"
 import styles from "./FutureForecastBlock.module.scss"
 
 export function FutureForecastBlock() {
-    const slider = useRef(null);
+    const slider = useRef<HTMLUListElement>(null);
     const [ isMouseDown , setIsMouseDown ] = useState(false);
     const [ startX, setStartX ] = useState(0);
     const [ scrollLeft, setScrollLeft ] = useState(0)
@@ -81,10 +81,10 @@ export function FutureForecastBlock() {
         }
     }
 
-    function handleMouseDown(e: any) {
+    function handleMouseDown(event: MouseEvent<HTMLUListElement>) {
         setIsMouseDown(true);
-        setStartX(e.pageX - - slider.current.offsetLeft);
-        setScrollLeft(slider.current.scrollLeft)
+        setStartX(event.pageX - - (slider.current?.offsetLeft || 0));
+        setScrollLeft(slider.current?.scrollLeft || 0)
     }
 
     function handleMouseLeave() {
@@ -95,12 +95,12 @@ export function FutureForecastBlock() {
         setIsMouseDown(false);
     }
 
-    function handleMouseMove(e: any) {
+    function handleMouseMove(event: MouseEvent<HTMLUListElement>) {
         if(!isMouseDown) return;
-        e.preventDefault();
-        const x = e.pageX - slider.current.offsetLeft;
+        event.preventDefault();
+        const x = event.pageX - (slider.current?.offsetLeft || 0);
         const walk = (x - startX) * 1;
-        slider.current.scrollLeft = scrollLeft - walk;
+        if(slider.current) slider.current.scrollLeft = scrollLeft - walk;
 
     }
 
