@@ -5,7 +5,7 @@ const ApiKey = import.meta.env.VITE_WEATHER_API_KEY;
 
 export async function getCityForecast (city: string): Promise<CityForecast | AxiosError | null> {
     try {
-        const response = await axios.get<CityForecast>(`http://api.weatherapi.com/v1/forecast.json?key=${ApiKey}&q=${city}&days=3&aqi=yes&alerts=no`);
+        const response = await axios.get<CityForecast>(`https://api.weatherapi.com/v1/forecast.json?key=${ApiKey}&q=${city}&days=3&aqi=yes&alerts=no`);
         return response.data 
     } catch (error) {
         if(axios.isAxiosError(error)) {
